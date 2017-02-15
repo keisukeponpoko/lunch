@@ -25,7 +25,9 @@ SECRET_KEY = 'bm8h301n%b)hjo))n8+j^c_645lztr^j7&sp6k*s-m9t)e-d=^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
