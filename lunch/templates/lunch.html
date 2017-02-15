@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>Hello! new Office Eat Map</title>
+    <link href="{% static 'css/lunch.css' %}" rel='stylesheet' type='text/css'/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&language=ja&key=AIzaSyBUCZztWDEPd3xVQyP0I09I7TMpy_XDPhg"></script>
+    <script type="text/javascript" src="{% static 'js/lunch.js' %}"></script>
+  </head>
+  <body class="drawer drawer--right">
+    <div id="header">
+      New Office Eat Map
+    </div>
+
+    <nav class="drawer-nav" role="navigation">
+      <div class="nav-title">SENIOR CAFE</div>
+      <div class="nav-img"><img src="shop.jpg"></div>
+      <div class="nav-detail">
+        <table class="nav-maininfo">
+          <tr>
+            <th>ジャンル</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>昼予算</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>夜予算</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>評価点</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>口コミ</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>定休日</th>
+            <td></td>
+          </tr>
+        </table>
+        <a href="#" class="nav-link" target='_blank'><button>お店詳細</button></a>
+        <a href="#" class="nav-review" target='_blank'><button>口コミ</button></a>
+        <table class="nav-subinfo">
+          <tr>
+            <th>最寄駅</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </nav>
+
+    <main role="main" id="main">
+      <div id="map-canvas"></div>
+      <table id="shopTable">
+        <thead><tr><th>店名</th><th>昼予算</th><th>カテゴリ</th></tr></thead>
+        <tbody id="shopBody"></tbody>
+      </table>
+    </main>
+  </body>
+</html>
