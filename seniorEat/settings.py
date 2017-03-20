@@ -79,16 +79,16 @@ WSGI_APPLICATION = 'seniorEat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'senior_eat',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'senior_eat',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
 
 DATABASES = {
     'default': {
@@ -144,7 +144,3 @@ STATICFILES_DIRS = (
 )
 
 ALLOWED_HOSTS = ['*']
-
-CORS_ORIGIN_WHITELIST = (
-    '*',
-)
