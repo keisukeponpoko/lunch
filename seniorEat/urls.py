@@ -13,10 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+# coding: utf-8
+
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from lunch.urls import router as lunch_router
+from lunch.views import CategoryFilterViewSet
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^lunch/', include('lunch.urls', namespace='lunch')),
+    url(r'^api/', include(lunch_router.urls)),
+    url(r'^api/shops/category/(?P<category>\w+)/$', CategoryFilterViewSet.as_view()),
 ]

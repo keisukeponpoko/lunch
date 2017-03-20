@@ -1,9 +1,7 @@
-from django.conf.urls import url
-from lunch.insert import Insert
-from lunch import views
+# coding: utf-8
 
-urlpatterns = [
-    url(r'^$', views.map),
-    url(r'^json/insert$', Insert.json),
-    url(r'^shop/get$', views.getShop)
-]
+from rest_framework import routers
+from .views import ShopViewSet
+
+router = routers.DefaultRouter()
+router.register(r'shops', ShopViewSet)

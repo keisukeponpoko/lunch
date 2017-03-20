@@ -1,14 +1,17 @@
-from django.shortcuts import render
-from lunch.models import Shop, Category
-from django.core import serializers
+# coding: utf-8
 
-# Create your views here.
-def map(request):
-    return render(request, 'lunch.html')
+import django_filters
+from rest_framework import viewsets, generics
 
-def getShop(request):
-    import json
-    from django.http import HttpResponse,Http404
+from .models import Shop, Category
+from .serializer import ShopSerializer
 
-    response = serializers.serialize("json", Shop.objects.all().select_related())
-    return HttpResponse(response)
+class ShopViewSet(viewsets.ModelViewSet):
+    serializer_class = ShopSerializer
+    queryset = Shop.objects.filter(lunch__in = [1000, 2000]).all()
+
+class CategoryFilterViewSet(generics.ListAPIView):
+    serializer_class = ShopSerializer
+    def get_queryset(self):
+        categoryName = self.kwargs['category']
+        return Shop.objects.filter(id__in = Category.objects.filter(category__contains = categoryName).values('shop_id')).filter(lunch__in = [1000, 2000]).distinct()

@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Shop(models.Model):
     name = models.CharField('書籍名', max_length=255)
     lunch = models.IntegerField('昼予算', blank=True, default=0)
