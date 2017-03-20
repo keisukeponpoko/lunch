@@ -134,5 +134,5 @@ STATICFILES_DIRS = (
 ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:8100',
+    '*',
 )
