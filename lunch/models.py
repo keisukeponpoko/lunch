@@ -1,7 +1,7 @@
 from django.db import models
 
 class Shop(models.Model):
-    name = models.CharField('書籍名', max_length=255)
+    name = models.CharField('店名', max_length=255)
     lunch = models.IntegerField('昼予算', blank=True, default=0)
     dinner = models.IntegerField('夜予算', blank=True, default=0)
     point = models.FloatField('点数', blank=True, default=0)
@@ -16,3 +16,14 @@ class Shop(models.Model):
 class Category(models.Model):
     shop_id = models.ForeignKey(Shop, on_delete=models.CASCADE)
     category = models.CharField('カテゴリ', max_length=255)
+
+class Comment(models.Model):
+    shop_id = models.ForeignKey(Shop, on_delete=models.CASCADE)
+    comment = models.TextField('コメント')
+
+class Point(models.Model):
+    name = models.CharField('ポイント', max_length=255)
+
+class ShopPoint(models.Model):
+    shop_id = models.ForeignKey(Shop, on_delete=models.CASCADE)
+    point_id = models.ForeignKey(Point, on_delete=models.CASCADE)

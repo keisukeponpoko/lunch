@@ -19,11 +19,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from lunch.urls import router as lunch_router
-from lunch.views import CategoryFilterViewSet
+from lunch.views import CategoryFilterViewSet, PointFilterViewSet
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(lunch_router.urls)),
-    url(r'^api/shops/category/(?P<category>\w+)/$', CategoryFilterViewSet.as_view()),
+    url(r'^api/shops/category/(?P<category>[1-9]+)/$', CategoryFilterViewSet.as_view()),
+    url(r'^api/shops/point/(?P<point>[1-9]+)/$', PointFilterViewSet.as_view()),
 ]
